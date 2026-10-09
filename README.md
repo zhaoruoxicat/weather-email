@@ -1,10 +1,13 @@
-# weatheremail — 天气邮件推送程序
+<img width="528" height="527" alt="Snipaste_2026-10-09_18-52-46" src="https://github.com/user-attachments/assets/25336501-e9cd-4172-a037-932fc3e4ad77" /># weatheremail — 天气邮件推送程序
 
 基于和风天气 API 的命令行天气预警程序。每次运行按**配置的经纬度**获取当地实时天气与次日预报，记录温度，在出现**大范围升降温**或**恶劣天气**时发送 HTML 格式的预警邮件。默认推送北京市，可在设置界面改成任意地点。
 
 - 仅命令行，无图形界面
 - 纯 Python 标准库，**无第三方依赖**
 - 完全离线运行，数据只从和风天气取，不向任何其它服务器上传
+<img width="505" height="553" alt="Snipaste_2026-10-09_18-52-59" src="https://github.com/user-attachments/assets/e55d8bfa-0523-4ac1-8d05-a102147be8b9" />
+<img width="528" height="527" alt="Snipaste_2026-10-09_18-52-46" src="https://github.com/user-attachments/assets/89776e38-6aef-4882-8907-141b86a442a4" />
+
 
 ## 安装
 
