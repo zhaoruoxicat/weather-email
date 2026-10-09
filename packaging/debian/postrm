@@ -1,0 +1,15 @@
+#!/bin/sh
+set -e
+
+# weatheremail 卸载后脚本
+# 仅清理可能残留的字节码缓存；用户配置一律保留。
+
+find /opt/weatheremail -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null || true
+
+echo ""
+echo "  weatheremail 已卸载。"
+echo "  您的配置与温度历史仍保留在： ~/.config/weatheremail/"
+echo "  如需彻底删除，请手动执行： rm -rf ~/.config/weatheremail"
+echo ""
+
+exit 0

@@ -1,0 +1,25 @@
+#!/usr/bin/python3
+"""weatheremail 启动入口（安装到 /usr/bin/weatheremail）。
+
+薄壳设计：只负责把 /opt/weatheremail 加进 sys.path 后调用包内 main，
+因此修改 /opt/weatheremail/weatheremail/ 下的代码无需重新生成此文件。
+"""
+
+import os
+import sys
+
+APP_DIR = "/opt/weatheremail"
+if os.path.isdir(APP_DIR) and APP_DIR not in sys.path:
+    sys.path.insert(0, APP_DIR)
+
+try:
+    from weatheremail.cli import main
+except ImportError as exc:  # pragma: no cover
+    sys.stderr.write(
+        "weatheremail: 无法加载程序模块（%s）。\n"
+        "请确认软件包已正确安装：dpkg -L weatheremail\n" % exc
+    )
+    sys.exit(127)
+
+if __name__ == "__main__":
+    sys.exit(main())

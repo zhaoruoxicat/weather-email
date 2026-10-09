@@ -1,0 +1,39 @@
+#!/bin/sh
+set -e
+
+# weatheremail 安装后脚本
+# 说明：程序本身无需后台服务，定时执行由用户自行配置（见 postinst 提示）。
+# 这里只做启动文件权限确认与提示，不写入任何用户目录。
+
+BIN=/usr/bin/weatheremail
+if [ -f "$BIN" ]; then
+    chmod 0755 "$BIN" || true
+fi
+
+# 清理可能随包带入的字节码缓存
+find /opt/weatheremail -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null || true
+
+cat <<'EOF'
+
+  天气邮件推送程序 (weatheremail) 已安装。
+
+  首次使用请执行：
+
+      weatheremail
+
+  在设置界面中填写：
+    1. 和风天气 API KEY
+    2. SMTP 服务器、发件人邮箱与授权码
+    3. 收件人邮箱
+
+  填写完成后保存，即可用以下命令发送天气邮件：
+
+      weatheremail -email
+
+  如需每日定时执行，可配置用户级定时任务（crontab -e）：
+
+      0 7 * * *  /usr/bin/weatheremail -email
+
+EOF
+
+exit 0

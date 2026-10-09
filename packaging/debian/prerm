@@ -1,0 +1,8 @@
+#!/bin/sh
+set -e
+
+# weatheremail 卸载前脚本
+# 重要：不删除用户的配置与温度历史（配置含邮箱授权码，误删损失大）。
+# 这些文件保留在 ~/.config/weatheremail，如需彻底清除请用户手动删除。
+
+exit 0

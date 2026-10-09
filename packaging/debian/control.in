@@ -1,0 +1,16 @@
+Package: weatheremail
+Version: @VERSION@
+Section: utils
+Priority: optional
+Architecture: all
+Depends: python3 (>= 3.8), ca-certificates
+Maintainer: weatheremail <weatheremail@localhost>
+Installed-Size: @SIZE@
+Homepage: https://dev.qweather.com
+Description: 天气邮件推送程序
+ 获取北京市实时天气与次日天气预报，记录每日温度，
+ 在出现大范围升降温或恶劣天气（雨、雪、冰雹、雾霾、大风）
+ 时，通过 SMTP 发送 HTML 格式的天气预警邮件。
+ .
+ 纯 Python 标准库实现，无第三方依赖。
+ 命令行运行 weatheremail 进入设置界面，weatheremail -email 执行天气邮件发送。
